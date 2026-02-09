@@ -1,6 +1,6 @@
 package frc.robot;
 
-import com.revrobotics.spark.config.ClosedLoopConfig.FeedbackSensor;
+import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
@@ -14,7 +14,8 @@ public class Configs {
 
         static {
             // use module constants to calculate conversion factors and feed forward gain
-            // ex. driv factor converts motor rotations to metres
+            // ex. driv f
+            //actor converts motor rotations to metres
             double drivingFactor = ModuleConstants.kWheelDiameterMeters * Math.PI / ModuleConstants.kDrivingMotorReduction;
             double turningFactor = 2 * Math.PI;
             double drivingVelocityFeedForward = 1 / ModuleConstants.kDriveWheelFreeSpeedRps;

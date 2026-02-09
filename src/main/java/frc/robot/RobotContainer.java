@@ -44,6 +44,7 @@ public class RobotContainer {
   // The autonomous chooser
   private final SendableChooser<Command> autoChooser = new SendableChooser<>();
 
+  
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
@@ -65,11 +66,6 @@ public class RobotContainer {
     // add additional auto modes you can add additional lines here with
     // autoChooser.addOption
     //autoChooser.setDefaultOption("Autonomous", Autos.exampleAuto(m_robotDrive, ballSubsystem));
-
-    /* waiting on pathplanner paths 
-    autoChooser = AutoBuilder.buildAutoChooser("New New Auto"); //HERE IT IS
-    SmartDashboard.putData("AutoChoosing", autoChooser);
-    */
 
   }
 

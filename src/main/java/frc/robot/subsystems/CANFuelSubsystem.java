@@ -20,10 +20,11 @@ public class CANFuelSubsystem extends SubsystemBase {
   private final SparkMax intakeLauncherRoller;
 
   /** Creates a new CANBallSubsystem. */
+  @SuppressWarnings("removal")
   public CANFuelSubsystem() {
-    // create brushed motors for each of the motors on the launcher mechanism
-    intakeLauncherRoller = new SparkMax(INTAKE_LAUNCHER_MOTOR_ID, MotorType.kBrushed);
-    feederRoller = new SparkMax(FEEDER_MOTOR_ID, MotorType.kBrushed);
+    // create brushless motors for each of the motors on the launcher mechanism
+    intakeLauncherRoller = new SparkMax(INTAKE_LAUNCHER_MOTOR_ID, MotorType.kBrushless);
+    feederRoller = new SparkMax(FEEDER_MOTOR_ID, MotorType.kBrushless);
 
     // put default values for various fuel operations onto the dashboard
     // all methods in this subsystem pull their values from the dashbaord to allow
@@ -106,6 +107,7 @@ public class CANFuelSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
+  // Increases voltage of motors for shooter to shoot balls higher and faster 
   public void speedIncrease()
   {
     if (LAUNCHING_LAUNCHER_VOLTAGE < 15.0)
@@ -117,6 +119,7 @@ public class CANFuelSubsystem extends SubsystemBase {
     }
   }
   
+  // Decreases voltage of motors for shooter to shoot balls lower and slower 
   public void speedDecrease()
   {
     if (LAUNCHING_LAUNCHER_VOLTAGE > 5.0)

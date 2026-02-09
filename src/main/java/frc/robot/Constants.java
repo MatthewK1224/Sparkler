@@ -21,8 +21,8 @@ import edu.wpi.first.math.util.Units;
 public final class Constants {
   public static final class FuelConstants {
     // Motor controller IDs for Fuel Mechanism motors
-    public static final int FEEDER_MOTOR_ID = 6;
-    public static final int INTAKE_LAUNCHER_MOTOR_ID = 5;
+    public static final int FEEDER_MOTOR_ID = 9;
+    public static final int INTAKE_LAUNCHER_MOTOR_ID = 10;
 
     // Current limit and nominal voltage for fuel mechanism motors.
     public static final int FEEDER_MOTOR_CURRENT_LIMIT = 60;
@@ -33,9 +33,9 @@ public final class Constants {
     // See the Software Guide for tuning information
     public static final double INTAKING_FEEDER_VOLTAGE = -12;
     public static final double INTAKING_INTAKE_VOLTAGE = 10;
-    public static final double LAUNCHING_FEEDER_VOLTAGE = 9;
-    public static final double LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
-    public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
+    public static double LAUNCHING_FEEDER_VOLTAGE = 9;
+    public static double LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
+    public static double SPIN_UP_FEEDER_VOLTAGE = -6;
     public static final double SPIN_UP_SECONDS = 1;
   }
 
@@ -69,16 +69,15 @@ public final class Constants {
     public static final double kBackRightChassisAngularOffset = Math.PI / 2; // 90 deg
 
     // SPARK MAX CAN IDs - Must change 
-    public static final int kFrontLeftDrivingCanId = 9;
+    public static final int kFrontLeftDrivingCanId = 8;
+    public static final int kRearLeftDrivingCanId = 5;
+    public static final int kFrontRightDrivingCanId = 4;
+    public static final int kRearRightDrivingCanId = 1;
 
-    public static final int kRearLeftDrivingCanId = 2;
-    public static final int kFrontRightDrivingCanId = 5;
-    public static final int kRearRightDrivingCanId = 4;
-
-    public static final int kFrontLeftTurningCanId = 8;
-    public static final int kRearLeftTurningCanId = 1;
-    public static final int kFrontRightTurningCanId = 6;
-    public static final int kRearRightTurningCanId = 3;
+    public static final int kFrontLeftTurningCanId = 7;
+    public static final int kRearLeftTurningCanId = 6;
+    public static final int kFrontRightTurningCanId = 3;
+    public static final int kRearRightTurningCanId = 2;
 
     public static final int kRollerCanId = 7;
 

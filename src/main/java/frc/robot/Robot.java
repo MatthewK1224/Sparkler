@@ -9,7 +9,6 @@ import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
 import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.util.sendable.SendableBuilder;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -17,9 +16,6 @@ import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveSubsystem;
-import static frc.robot.Constants.FuelConstants.SPIN_UP_SECONDS;
-import static frc.robot.Constants.OperatorConstants.DRIVER_CONTROLLER_PORT;
-import static frc.robot.Constants.OperatorConstants.OPERATOR_CONTROLLER_PORT;
 
 /**
  * The VM is configured to automatically run this class, and to call the
