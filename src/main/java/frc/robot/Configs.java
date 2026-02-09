@@ -15,10 +15,9 @@ public class Configs {
         static {
             // use module constants to calculate conversion factors and feed forward gain
             // ex. driv f
-            //actor converts motor rotations to metres
+            //factor converts motor rotations to metres
             double drivingFactor = ModuleConstants.kWheelDiameterMeters * Math.PI / ModuleConstants.kDrivingMotorReduction;
             double turningFactor = 2 * Math.PI;
-            double drivingVelocityFeedForward = 1 / ModuleConstants.kDriveWheelFreeSpeedRps;
 
             drivingConfig
                 .idleMode(IdleMode.kBrake)
@@ -31,7 +30,6 @@ public class Configs {
                 // may need to change, higher p reacts faster but can cause unwanted back and forth movement
                 // integral is drift correction derivitave is reduces sudden changes
                 .pid(0.08, 0, 0)//okok
-                .velocityFF(drivingVelocityFeedForward)
                 .outputRange(-1, 1);
 
             turningConfig
@@ -46,7 +44,6 @@ public class Configs {
                 .feedbackSensor(FeedbackSensor.kAbsoluteEncoder)
                 // may need to change
                 .pid(5, 0, 0)
-                .velocityFF(drivingVelocityFeedForward)
                 .outputRange(-1, 1)
                 // PID wraps around for turning motor, eg go thru 0
                 // pid controller going from 350 to 10 degrees will go thru 0 rather backwards, which will take longer
@@ -55,7 +52,6 @@ public class Configs {
         }
 
         public Command autoBalanceCommand() {
-            // TODO Auto-generated method stub
             throw new UnsupportedOperationException("Unimplemented method 'autoBalanceCommand'");
         }
     }
