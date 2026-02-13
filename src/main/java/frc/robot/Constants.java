@@ -21,170 +21,34 @@ import edu.wpi.first.math.util.Units;
 public final class Constants {
   public static final class FuelConstants {
     // Motor controller IDs for Fuel Mechanism motors
+    //public static final int INTAKE_LAUNCHER_MOTOR_ID = 14;
+
+    //New IDs
+    //public static final int LAUNCHING_LAUNCHER_MOTOR_ID = 13;
+    //public static final int LAUNCHING_FEEDER_MOTOR_ID = 14;
     public static final int FEEDER_MOTOR_ID = 13;
-    public static final int INTAKE_LAUNCHER_MOTOR_ID = 14;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static final int SPIN_UP_FEEDER_MOTOR_ID = 14;
+    public static final int INTAKING_INTAKE_MOTOR_ID = 15;
+    public static final int INTAKING_ARM_MOTOR_ID = 16;
 
     
     // Current limit and nominal voltage for fuel mechanism motors.
     public static final int FEEDER_MOTOR_CURRENT_LIMIT = 60;
     public static final int LAUNCHER_MOTOR_CURRENT_LIMIT = 60;
 
+    //New Current Limit Constants
+    public static final int LAUNCHING_LAUNCHER_MOTOR_CURRENT_LIMIT = 60;
+    public static final int LAUNCHING_FEEDER_MOTOR_CURRENT_LIMIT = 60;
+    public static final int SPIN_UP_FEEDER_MOTOR_CURRENT_LIMIT = 60;
+    public static final int INTAKING_INTAKE_MOTOR_CURRENT_LIMIT = 60;
+    public static final int INTAKING_ARM_MOTOR_CURRENT_LIMIT = 60;
+
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double INTAKING_FEEDER_VOLTAGE = -12;
+    public static final double INTAKING_ARM_VOLTAGE = -12;
     public static final double INTAKING_INTAKE_VOLTAGE = 10;
-    public static double LAUNCHING_FEEDER_VOLTAGE = 9;
-    public static double LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
+    public static double FEEDER_MOTOR_VOLTAGE = 9;
     public static double SPIN_UP_FEEDER_VOLTAGE = -6;
     public static final double SPIN_UP_SECONDS = 1;
   }
@@ -203,8 +67,8 @@ public final class Constants {
     public static final double kMaxAngularSpeed = 2 * Math.PI; 
 
     // chassis width and length
-    public static final double kTrackWidth = Units.inchesToMeters(28.5);
-    public static final double kWheelBase = Units.inchesToMeters(30.4);
+    public static final double kTrackWidth = Units.inchesToMeters(27.5);
+    public static final double kWheelBase = Units.inchesToMeters(27.5);
 
     public static final SwerveDriveKinematics kDriveKinematics = new SwerveDriveKinematics(
         new Translation2d(kWheelBase / 2, kTrackWidth / 2), // front right
@@ -219,12 +83,12 @@ public final class Constants {
     public static final double kBackRightChassisAngularOffset = Math.PI / 2; // 90 deg
 
     // SPARK MAX CAN IDs - Must change 
-    public static final int kFrontLeftDrivingCanId = 8;
+    public static final int kFrontLeftDrivingCanId = 7;
     public static final int kRearLeftDrivingCanId = 5;
     public static final int kFrontRightDrivingCanId = 4;
     public static final int kRearRightDrivingCanId = 1;
 
-    public static final int kFrontLeftTurningCanId = 7;
+    public static final int kFrontLeftTurningCanId = 8;
     public static final int kRearLeftTurningCanId = 6;
     public static final int kFrontRightTurningCanId = 3;
     public static final int kRearRightTurningCanId = 2;

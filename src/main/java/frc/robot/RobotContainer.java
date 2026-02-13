@@ -8,8 +8,13 @@ import static frc.robot.Constants.FuelConstants.SPIN_UP_SECONDS;
 import static frc.robot.Constants.OperatorConstants.DRIVER_CONTROLLER_PORT;
 import static frc.robot.Constants.OperatorConstants.OPERATOR_CONTROLLER_PORT;
 
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.commands.PathPlannerAuto;
+
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -42,13 +47,16 @@ public class RobotContainer {
 
   // The autonomous chooser
   private final SendableChooser<Command> autoChooser = new SendableChooser<>();
-
   
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
     configureBindings();
+
+    autoChooser = AutoBuilder.buildAutoChooser();
+
+    SmartDashboard.putData("Auto Chooser", autoChooser);
 
     m_robotDrive.setDefaultCommand(
         // the left stick controls translation of the robot.
@@ -61,11 +69,15 @@ public class RobotContainer {
                 true),
             m_robotDrive));
 
-    // Set the options to show up in the Dashboard for selecting auto modes. If you
-    // add additional auto modes you can add additional lines here with
-    // autoChooser.addOption
-    //autoChooser.setDefaultOption("Autonomous", Autos.exampleAuto(m_robotDrive, ballSubsystem));
+    autoChooser.setDefaultOption("Default Auto", new PathPlannerAuto("DefaultAuto"));
+    autoChooser.addOption("My Auto", new PathPlannerAuto("MyAuto"));
 
+    NamedCommands.registerCommand("intake", ballSubsystem.intakeCommand());
+    NamedCommands.registerCommand("eject", ballSubsystem.ejectCommand());
+    NamedCommands.registerCommand("launch", ballSubsystem.launchCommand());
+    NamedCommands.registerCommand("stop", ballSubsystem.stopCommand());
+    NamedCommands.registerCommand("spinUp", ballSubsystem.spinUpCommand());
+    NamedCommands.registerCommand("armRelease", ballSubsystem.armReleaseCommand());
   }
 
   /**
@@ -80,7 +92,6 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-
     /* BUMPERS AND TRIGGERS*/
     operatorController.leftBumper()
         .onTrue(new InstantCommand(() -> ballSubsystem.speedDecrease(), ballSubsystem));
@@ -122,11 +133,4 @@ public class RobotContainer {
     // An example command will be run in autonomous
     return autoChooser.getSelected();
   }
-
-  public Command pathplanner() {  
-        // This method loads the auto when it is called, however, it is recommended
-        // to first load your paths/autos when code starts, then return the
-        return autoChooser.getSelected();
-
-    }
 }
